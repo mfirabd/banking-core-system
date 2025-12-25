@@ -46,3 +46,8 @@ Introduced stable internal identifiers for accounts and linked
 transactions using account IDs. This prepares the domain model
 for relational database persistence while preserving audit
 integrity.
+
+## Day 8 – SQL & Query Thinking
+Designed relational table mappings and core SQL queries for
+transaction history, reconciliation, and balance verification.
+Index strategies are considered to ensure performance at scale.
