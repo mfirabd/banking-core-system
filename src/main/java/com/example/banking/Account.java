@@ -1,14 +1,19 @@
 package com.example.banking;
+import com.example.banking.interest.InterestCalculationStrategy;
 public abstract class Account {
     protected String accountNumber;
     protected double balance;
+    protected InterestCalculationStrategy interestStrategy;
 
-    public Account(String accountNumber, double balance) {
+    public Account(String accountNumber, double balance, InterestCalculationStrategy interestStrategy) {
         this.accountNumber = accountNumber;
         this.balance = balance;
+        this.interestStrategy = interestStrategy;
     }
 
-    public abstract double calculateInterest();
+    public double calculateInterest(){
+        return interestStrategy.calculate(balance);
+    };
 
     public String getAccountNumber() {
         return accountNumber;
@@ -19,11 +24,7 @@ public abstract class Account {
     }
 
     public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-        } else {
-            throw new IllegalArgumentException("Deposit amount must be positive");
-        }
+        balance += amount;
     }
 
     public void withdraw(double amount) {

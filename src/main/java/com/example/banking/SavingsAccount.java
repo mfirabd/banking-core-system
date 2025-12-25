@@ -1,10 +1,10 @@
 package com.example.banking;
+import com.example.banking.interest.SavingsInterestStrategy;
 public class SavingsAccount extends Account {
     private double interestRate = 2; // Annual interest rate in percentage
 
-    public SavingsAccount(String accountNumber, double balance, double interestRate) {
-        super(accountNumber, balance);
-        this.interestRate = interestRate;
+    public SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance, new SavingsInterestStrategy());
     }
 
     @Override

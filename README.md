@@ -12,3 +12,9 @@ using Object-Oriented Programming principles.
 Banks often support multiple account types with different
 interest and rule sets. This design allows new account types
 to be added without modifying existing logic.
+
+## Day 2 – Design Improvement
+Interest calculation was refactored using the Strategy Pattern.
+This decouples volatile business rules from stable domain models,
+allowing new interest rules to be added without modifying existing
+account classes.

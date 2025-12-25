@@ -1,10 +1,10 @@
 package com.example.banking;
+import com.example.banking.interest.NoInterestStrategy;
 public class CurrentAccount extends Account {
     private double overdraftLimit = 500; // Default overdraft limit
 
-    public CurrentAccount(String accountNumber, double balance, double overdraftLimit) {
-        super(accountNumber, balance);
-        this.overdraftLimit = overdraftLimit;
+    public CurrentAccount(String accountNumber, double balance) {
+        super(accountNumber, balance, new NoInterestStrategy());
     }
 
     @Override
