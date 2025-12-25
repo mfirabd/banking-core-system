@@ -4,6 +4,7 @@ import com.example.banking.interest.InterestCalculationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.UUID;
 
 import com.example.banking.exception.InsufficientBalanceException;
 import com.example.banking.exception.InvalidAmountException;
@@ -16,6 +17,8 @@ public abstract class Account {
 
     // ✅ MUST be inside the class
     protected List<Transaction> transactions = new ArrayList<>();
+
+    protected final String id = UUID.randomUUID().toString();
 
     public Account(String accountNumber, double balance, InterestCalculationStrategy interestStrategy) {
         this.accountNumber = accountNumber;
@@ -40,7 +43,7 @@ public abstract class Account {
             throw new InvalidAmountException(amount);
         }
         balance += amount;
-        transactions.add(new Transaction("DEPOSIT", amount));
+        transactions.add(new Transaction(id, "DEPOSIT", amount));
     }
 
     public void withdrawAmount(double amount) {
@@ -54,11 +57,14 @@ public abstract class Account {
 
         balance -= amount;
 
-        transactions.add(new Transaction("WITHDRAW", amount));
+        transactions.add(new Transaction(id, "WITHDRAW", amount));
     }
-
 
     public List<Transaction> getTransactions() {
         return Collections.unmodifiableList(transactions);
+    }
+
+    public String getId() {
+        return id;
     }
 }

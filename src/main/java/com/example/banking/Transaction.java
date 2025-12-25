@@ -9,9 +9,11 @@ public final class Transaction {
     private final String type;
     private final double amount;
     private final LocalDateTime timestamp;
+    private final String accountId;
     
-    public Transaction(String type, double amount) {
+    public Transaction(String accountId, String type, double amount) {
         this.id = UUID.randomUUID().toString();
+        this.accountId = accountId;
         this.type = type;
         this.amount = amount;
         this.timestamp = LocalDateTime.now();
@@ -31,5 +33,8 @@ public final class Transaction {
 
     public LocalDateTime getTimestamp() {
         return timestamp;
+    }
+    public String getAccountId() {
+        return accountId;
     }
 }

@@ -40,3 +40,9 @@ Introduced end-of-day batch processing to apply interest in a
 controlled manner. This reflects real banking operations where
 financial computations are processed after cut-off times to
 ensure consistency and auditability.
+
+## Day 7 – Persistence-Ready Design
+Introduced stable internal identifiers for accounts and linked
+transactions using account IDs. This prepares the domain model
+for relational database persistence while preserving audit
+integrity.
