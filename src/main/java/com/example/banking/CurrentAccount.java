@@ -1,5 +1,6 @@
 package com.example.banking;
 import com.example.banking.interest.NoInterestStrategy;
+import com.example.banking.exception.OverdraftLimitExceededException;
 public class CurrentAccount extends Account {
     private double overdraftLimit = 500; // Default overdraft limit
 
@@ -15,7 +16,7 @@ public class CurrentAccount extends Account {
     @Override
     public void withdrawAmount(double amount) {
         if (amount > balance + overdraftLimit) {
-            throw new IllegalArgumentException("Withdrawal exceeds overdraft limit");
+            throw new OverdraftLimitExceededException(overdraftLimit, amount);
         }
 
         // ✅ delegate to parent to keep ledger logic

@@ -4,6 +4,9 @@ import com.example.banking.interest.InterestCalculationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.banking.exception.InsufficientBalanceException;
+import com.example.banking.exception.InvalidAmountException;
+
 public abstract class Account {
 
     protected String accountNumber;
@@ -32,14 +35,20 @@ public abstract class Account {
     }
 
     public void deposit(double amount) {
+        if (amount <= 0) {
+            throw new InvalidAmountException(amount);
+        }
         balance += amount;
         transactions.add(new Transaction("DEPOSIT", amount));
     }
 
     public void withdrawAmount(double amount) {
         
+        if (amount <= 0) {
+            throw new InvalidAmountException(amount);
+        }
         if (amount > balance) {
-            throw new IllegalArgumentException("Insufficient balance");
+            throw new InsufficientBalanceException(balance, amount);
         }
 
         balance -= amount;

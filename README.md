@@ -18,3 +18,14 @@ Interest calculation was refactored using the Strategy Pattern.
 This decouples volatile business rules from stable domain models,
 allowing new interest rules to be added without modifying existing
 account classes.
+
+## Day 3 – Transaction Ledger
+Introduced a Transaction domain object and transaction history
+per account. This models real banking ledgers where balance is
+derived from transaction records rather than treated as a single
+source of truth.
+
+## Day 4 – Domain Exceptions & Validation
+Replaced generic exceptions with domain-specific banking exceptions.
+Validation is enforced at the domain level, producing clear,
+auditable error messages suitable for financial systems.
