@@ -29,3 +29,8 @@ source of truth.
 Replaced generic exceptions with domain-specific banking exceptions.
 Validation is enforced at the domain level, producing clear,
 auditable error messages suitable for financial systems.
+
+## Day 5 – Immutable Ledger & Audit Safety
+Transactions are immutable, uniquely identified, and timestamped.
+The transaction ledger is exposed as a read-only view to prevent
+external mutation, preserving audit integrity.

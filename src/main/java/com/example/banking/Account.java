@@ -3,6 +3,7 @@ package com.example.banking;
 import com.example.banking.interest.InterestCalculationStrategy;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 import com.example.banking.exception.InsufficientBalanceException;
 import com.example.banking.exception.InvalidAmountException;
@@ -58,6 +59,6 @@ public abstract class Account {
 
 
     public List<Transaction> getTransactions() {
-        return transactions;
+        return Collections.unmodifiableList(transactions);
     }
 }
