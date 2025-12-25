@@ -13,11 +13,13 @@ public class CurrentAccount extends Account {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdrawAmount(double amount) {
         if (amount > balance + overdraftLimit) {
             throw new IllegalArgumentException("Withdrawal exceeds overdraft limit");
         }
-        balance -= amount;
+
+        // ✅ delegate to parent to keep ledger logic
+        super.withdrawAmount(amount);
     }
 
     public double getOverdraftLimit() {
