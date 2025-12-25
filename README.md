@@ -51,3 +51,9 @@ integrity.
 Designed relational table mappings and core SQL queries for
 transaction history, reconciliation, and balance verification.
 Index strategies are considered to ensure performance at scale.
+
+## Day 9 – Testing & Failure Scenarios
+Identified critical failure scenarios across account operations,
+ledger integrity, and batch processing. Designed the system to
+fail explicitly, protect audit data, and support recovery using
+the transaction ledger as the source of truth.
