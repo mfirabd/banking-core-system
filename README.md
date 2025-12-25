@@ -1,4 +1,4 @@
-# Banking Core System (Day 1)
+# Banking Core System 
 
 This project demonstrates basic banking account modelling
 using Object-Oriented Programming principles.
@@ -8,7 +8,7 @@ using Object-Oriented Programming principles.
 - Polymorphism via account types
 - Abstract base class for extensibility
 
-## Banking Relevance
+## Day 1 - Banking Relevance
 Banks often support multiple account types with different
 interest and rule sets. This design allows new account types
 to be added without modifying existing logic.
@@ -34,3 +34,9 @@ auditable error messages suitable for financial systems.
 Transactions are immutable, uniquely identified, and timestamped.
 The transaction ledger is exposed as a read-only view to prevent
 external mutation, preserving audit integrity.
+
+## Day 6 – End-of-Day Batch Processing
+Introduced end-of-day batch processing to apply interest in a
+controlled manner. This reflects real banking operations where
+financial computations are processed after cut-off times to
+ensure consistency and auditability.

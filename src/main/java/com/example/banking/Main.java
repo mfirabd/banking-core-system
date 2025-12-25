@@ -1,4 +1,5 @@
 package com.example.banking;
+import com.example.banking.batch.EndOfDayProcessor;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +25,15 @@ public class Main {
         current.getTransactions().forEach(txc ->
                 System.out.println(txc.getType() + " - " + txc.getAmount())
         );
+
+        EndOfDayProcessor eodProcessor = new EndOfDayProcessor();
+        eodProcessor.process(savings);
+        eodProcessor.process(current);
+
+        System.out.println("\nAfter End-of-Day Processing:");
+        System.out.println("\nSavings Account Balance: " + savings.getBalance());
+        System.out.println("Current Account Balance: " + current.getBalance());
+
         
     }
 }
